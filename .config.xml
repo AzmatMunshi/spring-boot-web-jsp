@@ -1,0 +1,181 @@
+	<platformMigrationConfiguration>
+	<fromPlatform>JDK 6</fromPlatform>
+	<toPlatform>JDK 11</toPlatform>
+	<isHTSProfilingEnable>true</isHTSProfilingEnable>
+	<applicationId>0</applicationId>
+	<logDirectory>.logs</logDirectory>
+	<createReport>true</createReport>
+	<databaseUsed>Oracle</databaseUsed>
+	<javaVersion>java 1.6</javaVersion>
+	<rulefile>
+		<additionaRuleDirectory></additionaRuleDirectory>		
+		<javarulefiles>JDK6_To_JDK11_Rules.xml</javarulefiles>		
+		<jsprulefiles></jsprulefiles>		
+		<propertyrulefiles>XML_Weblogic_Rules.xml</propertyrulefiles>
+		<textrulefiles></textrulefiles>
+		<templaterulefiles></templaterulefiles>
+		
+		<xmlrulefiles>
+		<xmlrulefile>
+				<filePattern><![CDATA[struts]]></filePattern>
+				<ruleFile>XML_Struts_Rules.xml,XML_Struts_United.xml</ruleFile>
+			</xmlrulefile>
+			<xmlrulefile>
+				<filePattern><![CDATA[weblogic]]></filePattern>
+				<ruleFile>XML_Glassfish_Rules.xml,XML_Axis_Rules.xml,XML_Websphere_Rules.xml,XML_Weblogic_Rules.xml,XML_Webservice_Rules.xml,XML_JSP_Rules.xml,XML_JSP_Basic_Rules.xml</ruleFile>
+			</xmlrulefile>
+		  <xmlrulefile>
+				<filePattern><![CDATA[pom]]></filePattern>
+				<ruleFile>XML_POM_Rules.xml</ruleFile> 
+			</xmlrulefile> 
+		</xmlrulefiles>
+	</rulefile>
+	<falsePositives>
+		<!--<subRule ruleName="CP_External_API">actionExecute</subRule>-->
+	</falsePositives>
+	<resolutions>
+		<resolution>
+			<name>Hashtable_To_CHM</name>
+			<fileType>java</fileType>
+			<rule>HashTableUSage</rule>
+			<resolvingClass>com.wipro.hts.resolution.replace.StringReplaceResolution</resolvingClass>
+			<resolutionPatterns>
+				<pattern>
+					<fromPattern>java.util.Hashtable</fromPattern>
+					<toPattern>java.util.concurrent.ConcurrentHashMap</toPattern>
+				</pattern>
+				<pattern>
+					<fromPattern>Hashtable</fromPattern>
+					<toPattern>ConcurrentHashMap</toPattern>
+				</pattern>
+				
+			</resolutionPatterns>
+		</resolution>
+		<resolution>
+			<name>Vector_To_List</name>
+			<fileType>java</fileType>
+			<rule>VectorUsage</rule>
+			<resolvingClass>com.wipro.hts.resolution.replace.StringReplaceResolution</resolvingClass>
+			<resolutionPatterns>
+				<pattern>
+					<fromPattern>java.util.Vector</fromPattern>
+					<toPattern>java.util.ArrayList</toPattern>
+				</pattern>
+				<pattern>
+					<fromPattern>Vector</fromPattern>
+					<toPattern>ArrayList</toPattern>
+				</pattern>
+				<pattern>
+					<fromPattern>java.util.Enumeration</fromPattern>
+					<toPattern>java.util.Iterator</toPattern>
+				</pattern>
+				<pattern>
+					<fromPattern>addElement</fromPattern>
+					<toPattern>add</toPattern>
+				</pattern>
+				
+				<pattern>
+					<fromPattern>Enumeration</fromPattern>
+					<toPattern>Iterator</toPattern>
+				</pattern>
+				
+				<pattern>
+					<fromPattern>hasMoreElements</fromPattern>
+					<toPattern>hasNext</toPattern>
+				</pattern>
+				<pattern>
+					<fromPattern>nextElement</fromPattern>
+					<toPattern>next</toPattern>
+				</pattern>
+					<pattern>
+					<fromPattern>elements</fromPattern>
+					<toPattern>iterator</toPattern>
+				</pattern>
+			</resolutionPatterns>
+		</resolution>		
+		<resolution>
+			<name>Hardcoded IP resolution</name>
+			<fileType>java</fileType>
+			<rule>HardCodedIPUSage</rule>
+			<resolvingClass>com.wipro.hts.resolution.replace.HardCodedIPResolution</resolvingClass>
+		</resolution>		
+		<resolution>
+			<name>SOP Resolution</name>
+			<fileType>java</fileType>		 
+			<rule>Inline_SOP</rule>
+			<resolvingClass>com.wipro.hts.resolution.replace.sop.SOPReplaceResolution</resolvingClass>		
+			<resolutionPatterns>
+				<pattern>
+					<fromPattern>System.out.println</fromPattern>
+					<toPattern>info</toPattern>
+				</pattern>
+				<pattern>
+					<fromPattern>System.err.println</fromPattern>
+					<toPattern>error</toPattern>
+				</pattern>
+			</resolutionPatterns>
+		</resolution>
+		<resolution>
+			<name>Base64 Resolution</name>
+			<fileType>java</fileType>		 
+			<rule>BASE64Decoder Usage detected1</rule>
+			<resolvingClass>com.wipro.hts.resolution.replace.StringReplaceResolution</resolvingClass>		
+			<resolutionPatterns>
+				<pattern>
+					<fromPattern>sun.misc.BASE64Decoder</fromPattern>
+					<toPattern>java.util.Base64</toPattern>
+				</pattern>
+				<pattern>
+					<fromPattern>new BASE64Decoder().decodeBuffer</fromPattern>
+					<toPattern>Base64.getDecoder().decode</toPattern>
+				</pattern>
+			</resolutionPatterns>
+		</resolution>
+		<resolution>
+			<name>NimbusLookAndFeel Resolution</name>
+			<fileType>java</fileType>		 
+			<rule>nimbusLookAndFeel_detected1</rule>
+			<resolvingClass>com.wipro.hts.resolution.replace.StringReplaceResolution</resolvingClass>		
+			<resolutionPatterns>
+				<pattern>
+					<fromPattern>com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel</fromPattern>
+					<toPattern>javax.swing.plaf.nimbus.NimbusLookAndFeel</toPattern>
+				</pattern>				
+			</resolutionPatterns>
+		</resolution>
+		<resolution>
+			<name>JavaFX Resolution</name>
+			<fileType>xml</fileType>
+			<rule>JavaFX Usage detected1</rule>
+			<resolvingClass>com.wipro.hts.resolution.replace.StringReplaceResolution</resolvingClass>		
+			<resolutionPatterns>
+				<pattern>
+					<fromPattern>com.oracle</fromPattern>
+					<toPattern>org.openjfx</toPattern>
+				</pattern>	
+				<pattern>
+					<fromPattern>2.0</fromPattern>
+					<toPattern>11</toPattern>
+				</pattern>				
+			</resolutionPatterns>
+		</resolution>		
+	 </resolutions>	 
+	<transformations>
+		<transformation>
+			<fromFileName>weblogic-ejb-jar.xml</fromFileName>
+			<transformerXslFileName>jboss-weblogic.xsl</transformerXslFileName>
+			<toFileName>jboss.xml</toFileName>
+	    </transformation>
+	</transformations>
+	<applicationFileSet>
+		<fromFileName>weblogic-ejb-jar.xml</fromFileName>
+		<transformerXslFileName>jboss-weblogic.xsl
+		</transformerXslFileName>
+		<toFileName>jboss.xml</toFileName>
+	</applicationFileSet>	
+	<entityBeanFileSet>
+		<fromFileName></fromFileName>
+		<transformerXslFileName></transformerXslFileName>
+		<toFileName></toFileName>
+	</entityBeanFileSet>
+</platformMigrationConfiguration>

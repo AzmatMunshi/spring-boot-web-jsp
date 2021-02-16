@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hts application_id="0" profile_id="0" timestamp="2020-12-07T12:34:58.660">
+<package name="com.testApp.spring.UI">
+<file name="test.java">
+<violation beginline="9" endline="9" begincolumn="8" endcolumn="55" rule="JDK6_to_JDK8" subRule="SUN_Packages_Detected1" ruleset="Basic Rules" package="com.testApp.spring.UI" falsePositive="N" priority="3">
+packages Inaccessible
+</violation>
+<violation beginline="11" endline="11" begincolumn="8" endcolumn="29" rule="JDK6_to_JDK8" subRule="BASE64Decoder Usage detected1" ruleset="Basic Rules" package="com.testApp.spring.UI" falsePositive="N" priority="1">
+SUN BASE64Decoder detcted
+</violation>
+<violation beginline="17" endline="17" begincolumn="42" endcolumn="58" rule="JDK6_to_JDK8" subRule="nimbusLookAndFeel_detected1" ruleset="Basic Rules" package="com.testApp.spring.UI" class="test" method="main" falsePositive="N" priority="3">
+NimbusLookAndFeel Support Removed
+</violation>
+</file>
+</package>
+<package name="com.testApp.dao">
+<file name="WriteData.java">
+<violation beginline="3" endline="3" begincolumn="8" endcolumn="42" rule="JDK6_to_JDK8" subRule="org_omg_Detected1" ruleset="Basic Rules" package="com.testApp.dao" falsePositive="N" priority="3">
+orgOmg Removed from package
+</violation>
+</file>
+<file name="ReadDataFile.java">
+<violation beginline="7" endline="7" begincolumn="8" endcolumn="35" rule="JDK6_to_JDK8" subRule="JavaXActivation_Detected1" ruleset="Basic Rules" package="com.testApp.dao" falsePositive="N" priority="3">
+Removed technologies/packages
+</violation>
+<violation beginline="8" endline="8" begincolumn="8" endcolumn="34" rule="JDK6_to_JDK8" subRule="JavaXActivation_Detected1" ruleset="Basic Rules" package="com.testApp.dao" falsePositive="N" priority="3">
+Removed technologies/packages
+</violation>
+<violation beginline="11" endline="11" begincolumn="8" endcolumn="22" rule="JDK6_to_JDK8" subRule="RMI_Detected1" ruleset="Basic Rules" package="com.testApp.dao" falsePositive="N" priority="3">
+CORBA Removed
+</violation>
+<violation beginline="21" endline="21" begincolumn="8" endcolumn="21" rule="JDK6_to_JDK8" subRule="jaxb_Detected1" ruleset="Basic Rules" package="com.testApp.dao" falsePositive="N" priority="3">
+JAXB Removed from package
+</violation>
+<violation beginline="23" endline="23" begincolumn="8" endcolumn="24" rule="JDK6_to_JDK8" subRule="jta_Detected1" ruleset="Basic Rules" package="com.testApp.dao" falsePositive="N" priority="3">
+JTA Removed from package
+</violation>
+</file>
+</package>
+<package name="com.testApp">
+<file name="SpringBootWebApplication.java">
+<violation beginline="8" endline="8" begincolumn="8" endcolumn="27" rule="JDK6_to_JDK8" subRule="CommonsAnnotation_Detected1" ruleset="Basic Rules" package="com.testApp" falsePositive="N" priority="3">
+Commons Annotation Removed
+</violation>
+<violation beginline="9" endline="9" begincolumn="8" endcolumn="21" rule="JDK6_to_JDK8" subRule="JAXWS_Usage_Detected1" ruleset="Basic Rules" package="com.testApp" falsePositive="N" priority="3">
+Removed JAX-WS from package
+</violation>
+<violation beginline="10" endline="10" begincolumn="8" endcolumn="21" rule="JDK6_to_JDK8" subRule="jws_Detected1" ruleset="Basic Rules" package="com.testApp" falsePositive="N" priority="3">
+JAX-WS Removed from package
+</violation>
+</file>
+</package>
+</hts>
